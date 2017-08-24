@@ -187,7 +187,7 @@ public class Main {
                 return;
             }
 
-            System.out.format("INFO: Collecting the molerat.evidence for '%s' from '%s'\n", cveName, projectName);
+            System.out.format("INFO: Collecting the vulnerability evidence for '%s' from '%s'\n", cveName, projectName);
             VulnerabilityEvidenceTracker vulnTracker = VulnerabilityEvidenceTrackerFactory.getTracker(
                     repositoryPath,
                     fixCommit,
