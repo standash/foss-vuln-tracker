@@ -24,7 +24,7 @@ public class Main {
 
         Option listTrackersOpt = Option.builder()
                 .longOpt("list-trackers")
-                .desc("List the available trackers for vulnerability molerat.evidence")
+                .desc("List the available trackers for vulnerability vulnerability evidence")
                 .build();
         opts.addOption(listTrackersOpt);
 
@@ -65,7 +65,7 @@ public class Main {
 
         Option trackerTypeOpt = Option.builder()
                 .longOpt("tracker-type")
-                .desc("The type of the vulnerability molerat.evidence tracker")
+                .desc("The type of the vulnerability evidence tracker")
                 .hasArg()
                 .build();
         opts.addOption(trackerTypeOpt);
@@ -208,7 +208,7 @@ public class Main {
             );
             boolean isSuccessful = db.insertAnalysisEntry(entry);
             if (!isSuccessful) {
-                System.out.format("WARNING: Could not get any molerat.evidence for '%s' in '%s'\n", cveName, projectName);
+                System.out.format("WARNING: Could not get any vulnerability evidence for '%s' in '%s'\n", cveName, projectName);
             }
             System.out.println("INFO: Done!");
         }
@@ -234,7 +234,7 @@ public class Main {
                 System.out.format("INFO: writing the entries for '%s'\n", cveName);
                 Set<VulnerabilityEvidence> evidences = analysis.getVulnEvidencesSet();
                 if (evidences.size() == 0) {
-                    throw new Exception(String.format("There is no molerat.evidence for '%s' in the database", cveName));
+                    throw new Exception(String.format("There is no vulnerability evidence for '%s' in the database", cveName));
                 }
                 Map<String, Integer> locsCount = new LinkedHashMap<>();
                 for (VulnerabilityEvidence evd : evidences) {
