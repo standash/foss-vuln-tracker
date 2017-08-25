@@ -13,7 +13,5 @@ RUN touch /var/log/mongodb/mongo-error.log
 # cleanup 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# start the mongodb
-CMD service mongodb start && tail -F /var/log/mongodb/mongo-error.log
-
-
+# start the mongodb and catalina
+CMD service mongodb start && catalina.sh run
