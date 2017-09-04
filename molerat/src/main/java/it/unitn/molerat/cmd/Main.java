@@ -158,7 +158,7 @@ public class Main {
         }
         catch (ParseException e) {
             System.out.println("ERROR: " + e.getMessage());
-            helpFormatter.printHelp("utility-name", opts);
+            helpFormatter.printHelp("java -jar molerat.jar", opts);
         }
     }
 
