@@ -84,31 +84,31 @@ The database has following collections and relationships between them:
 
 1. "projects" -> the collection that lists all projects for which the analysis was performed ("projects" has one-to-many relationship with "vulns")
 
-	```
-	db.projects.findOne();
-	{ 
-		_id : "",  					-> the id of a project (bson id)
-		name : "",					-> the name of a project (e.g., "Tomcat")
-		repo_type : "",				-> the type of its source repository (e.g., "git")
-		repo_path : "",				-> the path of the repository (e.g., "/home/user/tomcat")
-		vulns : [					-> the list of CVEs for which an analysis was performed 
-			vuln_id : "",					(e.g,. "CVE-2014-0230", ...)
-			...
-		]
-	}
-	```
+```
+db.projects.findOne();
+{ 
+	_id : "",  					-> the id of a project (bson id)
+	name : "",					-> the name of a project (e.g., "Tomcat")
+	repo_type : "",				-> the type of its source repository (e.g., "git")
+	repo_path : "",				-> the path of the repository (e.g., "/home/user/tomcat")
+	vulns : [					-> the list of CVEs for which an analysis was performed 
+		vuln_id : "",					(e.g,. "CVE-2014-0230", ...)
+		...
+	]
+}
+```
 
 2. "vulns" -> the collection that lists all CVEs for which the analysis was performed ("vulns" has one-to-gazillion relationship with "entries")
 
-	```
-	db.vulns.findOne();
-	{	
-		_id : "",					-> the id of a CVE (bson id)
-		cve : "",					-> the name of a CVE
-		owner_id : "",				-> the bson id of a corresponding project
-		fix_commit : "",			-> the id of a commit that fixed the CVE
-	}
-	```
+```
+db.vulns.findOne();
+{	
+	_id : "",					-> the id of a CVE (bson id)
+	cve : "",					-> the name of a CVE
+	owner_id : "",				-> the bson id of a corresponding project
+	fix_commit : "",			-> the id of a commit that fixed the CVE
+}
+```
 
 3. "entries" -> the collection that lists vulnerability evidence entries 
 
