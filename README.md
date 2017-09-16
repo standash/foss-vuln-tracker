@@ -82,8 +82,7 @@ sure).
 
 The database has following collections and relationships between them: 
 
-1. "projects" -> the collection that lists all projects for which the analysis was performed
-	("projects" has one-to-many relationship with "vulns")
+1. "projects" -> the collection that lists all projects for which the analysis was performed ("projects" has one-to-many relationship with "vulns")
 
 	```
 	db.projects.findOne();
@@ -99,11 +98,9 @@ The database has following collections and relationships between them:
 	}
 	```
 
-2. "vulns" -> the collection that lists all CVEs for which the analysis was performed
+2. "vulns" -> the collection that lists all CVEs for which the analysis was performed ("vulns" has one-to-gazillion relationship with "entries")
 
 	```
-	("vulns" has one-to-gazillion relationship with "entries")
-
 	db.vulns.findOne();
 	{	
 		_id : "",					-> the id of a CVE (bson id)
