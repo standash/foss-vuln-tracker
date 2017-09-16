@@ -85,6 +85,7 @@ The database has following collections and relationships between them:
 1. "projects" -> the collection that lists all projects for which the analysis was performed
 	("projects" has one-to-many relationship with "vulns")
 
+	```
 	db.projects.findOne();
 	{ 
 		_id : "",  					-> the id of a project (bson id)
@@ -96,8 +97,10 @@ The database has following collections and relationships between them:
 			...
 		]
 	}
+	```
 
 2. "vulns" -> the collection that lists all CVEs for which the analysis was performed
+	```
 	("vulns" has one-to-gazillion relationship with "entries")
 
 	db.vulns.findOne();
@@ -107,10 +110,11 @@ The database has following collections and relationships between them:
 		owner_id : "",				-> the bson id of a corresponding project
 		fix_commit : "",			-> the id of a commit that fixed the CVE
 	}
-
+	```
 
 3. "entries" -> the collection that lists vulnerability evidence entries 
 
+	```
 	db.entries.findOne();
 	{
 		_id : "",					-> the id of an evicence entry (bson id)
@@ -122,3 +126,4 @@ The database has following collections and relationships between them:
 		line_number : "",			-> the number of the line of code 
 		line_contents : ""			-> the contents of the line of code 
 	}
+	```
