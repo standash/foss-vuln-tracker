@@ -101,7 +101,7 @@ The database has following collections and relationships between them:
 2. "vulns" -> the collection that lists all CVEs for which the analysis was performed ("vulns" has one-to-gazillion relationship with "entries")
 
 	```
-	db.vulns.findOne(); <br />
+	db.vulns.findOne();
 	{	
 		_id : "",					-> the id of a CVE (bson id)
 		cve : "",					-> the name of a CVE
@@ -112,16 +112,16 @@ The database has following collections and relationships between them:
 
 3. "entries" -> the collection that lists vulnerability evidence entries 
 
-	```
-	db.entries.findOne();
-	{
-		_id : "",					-> the id of an evicence entry (bson id)
-		owner_id : "",				-> the id of a corresponding CVE
-		revision : "",				-> the current commit/revision to which the entry belongs
-		revision_distance : "",		-> this number indincates how far the current revision is from fix
-		file_path : "",				-> the path of a file to which the entry belongs
-		container : "",				-> the method/constructor to which the entry belongs
-		line_number : "",			-> the number of the line of code 
-		line_contents : ""			-> the contents of the line of code 
-	}
-	```
+```
+db.entries.findOne();
+{
+	_id : "",					-> the id of an evicence entry (bson id)
+	owner_id : "",				-> the id of a corresponding CVE
+	revision : "",				-> the current commit/revision to which the entry belongs
+	revision_distance : "",		-> this number indincates how far the current revision is from fix
+	file_path : "",				-> the path of a file to which the entry belongs
+	container : "",				-> the method/constructor to which the entry belongs
+	line_number : "",			-> the number of the line of code 
+	line_contents : ""			-> the contents of the line of code 
+}
+```
