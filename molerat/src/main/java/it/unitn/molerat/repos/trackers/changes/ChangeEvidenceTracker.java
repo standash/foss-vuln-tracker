@@ -44,7 +44,6 @@ public class ChangeEvidenceTracker extends AbstractEvidenceTracker {
     @Override
     public void trackEvidence() throws Exception {
         for (String commit : this.commits) {
-//            long timeNow = System.currentTimeMillis();
             Map<String, Set<String>> currentSignatures = extractSignatures(commit);
             for (Map.Entry<String, Set<String>> currentSignature : currentSignatures.entrySet()) {
                 Set<String> temp = this.fixConstructs.get(currentSignature.getKey());
