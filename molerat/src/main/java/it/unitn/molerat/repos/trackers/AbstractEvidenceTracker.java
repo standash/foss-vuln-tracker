@@ -12,8 +12,10 @@ public abstract class AbstractEvidenceTracker {
     protected Set<Changes> changes;
     protected Set<String> commits = new LinkedHashSet<>();
     protected Set<String> restOfCommits = new LinkedHashSet<>();
+    protected boolean ignoreChangesToTests;
 
-    public AbstractEvidenceTracker(RepoWrapper wrapper, String fixedRev) throws Exception {
+    public AbstractEvidenceTracker(RepoWrapper wrapper, String fixedRev, boolean ignoreChangesToTests) throws Exception {
+        this.ignoreChangesToTests = ignoreChangesToTests;
         this.fixedRevision = fixedRev;
         this.repoPath = wrapper.getBasePath();
         this.repoWrapper = wrapper;
@@ -24,6 +26,10 @@ public abstract class AbstractEvidenceTracker {
         }
         String initDiff = repoWrapper.doDiff(vulnRevision, fixedRevision);
         this.changes = repoWrapper.inferChangesFromDiff(initDiff, vulnRevision, fixedRevision);
+    }
+
+    public AbstractEvidenceTracker(RepoWrapper wrapper, String fixedRev) throws Exception {
+        this(wrapper, fixedRev, true);
     }
 
     public RepoWrapper getRepoWrapper() {
@@ -42,8 +48,15 @@ public abstract class AbstractEvidenceTracker {
     protected Set<Changes> filterNonJavaChanges(Set<Changes> changes) {
         Set<Changes> filteredChanges = new HashSet<>();
         for (Changes change : changes) {
-            if (!change.getPath().endsWith(".java") || change.getPath().toLowerCase().contains("test")) {
+            // ignore non-Java files
+            if (!change.getPath().endsWith(".java")) {
                 filteredChanges.add(change);
+            }
+            else {
+                // ignore tests if the corresponding setting is set
+                if (ignoreChangesToTests && change.getPath().toLowerCase().contains("test")) {
+                    filteredChanges.add(change);
+                }
             }
             this.repoWrapper.filterCommentsAndBlanks(change.getDeletions());
             this.repoWrapper.filterCommentsAndBlanks(change.getAdditions());

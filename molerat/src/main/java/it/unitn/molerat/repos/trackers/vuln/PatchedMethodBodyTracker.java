@@ -12,7 +12,11 @@ import java.util.Set;
 public class PatchedMethodBodyTracker extends VulnerabilityEvidenceTracker {
 
 	public PatchedMethodBodyTracker(RepoWrapper wrapper, String fixedRev) throws Exception {
-		super(wrapper, fixedRev);
+		super(wrapper, fixedRev, true);
+	}
+
+	public PatchedMethodBodyTracker(RepoWrapper wrapper, String fixedRev, boolean ignoreChangesToTests) throws Exception {
+		super(wrapper, fixedRev, ignoreChangesToTests);
 	}
 
 	@Override
