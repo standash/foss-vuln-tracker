@@ -12,7 +12,7 @@ The project consists of two parts:
 
 1. "repoman" - a simple program slicer for Java source code.
 
-2. "molerat" - a library that is using "repoman" and other methods to identify
+2. "molerat" - a library that is using "repoman" and other methods to 
 identify and track the potentially vulnerable coding.
 
 --------------------
