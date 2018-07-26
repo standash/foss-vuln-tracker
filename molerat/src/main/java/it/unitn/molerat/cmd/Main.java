@@ -97,19 +97,12 @@ public class Main {
 
             if (cmd.hasOption("list-trackers")) {
                 System.out.println(VulnerabilityEvidenceTrackerFactory.getTrackersList());
-                return;
             }
-
-            if (cmd.hasOption("input-file")) {
+            else if (cmd.hasOption("input-file")) {
                 String i = cmd.getOptionValue("input-file");
                 collectVulnEvidence(i);
             }
-            if (cmd.hasOption("output-file")) {
-                String o = cmd.getOptionValue("output-file");
-                generateCsv(o);
-            }
-
-            if (!cmd.hasOption("input-file") && !cmd.hasOption("output-file")) {
+            else {
                 String projectName = null;
                 String repoType = null;
                 String repoPath = null;
@@ -154,6 +147,11 @@ public class Main {
                     throw new ParseException("The 'tracker-type' parameter is not specified");
                 }
                 collect(projectName, repoType, repoPath, cveId, fixCommit, trackerType);
+
+                if (cmd.hasOption("output-file")) {
+                    String o = cmd.getOptionValue("output-file");
+                    generateCsv(o);
+                }
             }
         }
         catch (ParseException e) {
