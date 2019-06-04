@@ -1,6 +1,4 @@
---------------------
-About
---------------------
+##About
 
 This is a project for collecting the vulnerability evidence from source code repositories. 
 
@@ -21,9 +19,9 @@ The project consists of two parts:
 identify and track the potentially vulnerable coding.
 
 
---------------------
-Prerequisites
---------------------
+##Usage
+
+####Prerequisites
 
 1. Java compiler and runtime (tested with jdk 1.8).
 	
@@ -32,9 +30,7 @@ Prerequisites
 3. MongoDB (tested with version 3.4)
 	* make sure the mongodb service is running
 
---------------------
-Building and packaging
---------------------
+####Building and packaging
 
 Building with Maven is pretty straightforward. The following commands are
 available:
@@ -48,9 +44,7 @@ each project.
 
 3. "mvn clean" - deletes all temporary folders.
 
---------------------
-Usage
---------------------
+####Basic usage
 
 The project can be compiled into an executable jar library:
 	1. Execute the "mvn package" command
@@ -76,9 +70,7 @@ IMPORTANT: if you are running the analysis using a .csv input file, please make
 sure that the fields are specified in the exact order as shown above.
 
 
---------------------
-MongoDB database
---------------------
+####MongoDB database
 
 There is no access control for the database, just make sure that the "bindIp"
 setting is set to "127.0.0.1" which allows only local access (typically, this
