@@ -1,15 +1,12 @@
 ## About
 
-This is a project for collecting the vulnerability evidence from source code repositories. 
+This is the source code behind the paper [``A Screening Test for Disclosed
+Vulnerabilities in FOSS
+Components''](https://ieeexplore.ieee.org/abstract/document/8316943).
 
-S. Dashevskyi, A. D. Brucker and F. Massacci, "A Screening Test for Disclosed Vulnerabilities in FOSS Components," in
-IEEE Transactions on Software Engineering.  doi: 10.1109/TSE.2018.2816033 URL:
-http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8316943&isnumber=4359463
-
-The project has a collection of tools that allows to identify and
-extract the potentially vulnerable coding (using a commit that fixed a CVE), and
-track its origins in the repository history to identify the versions that are
-likely not affected by a CVE.
+The tool allows to identify and extract the potentially vulnerable coding (using
+a commit that fixed a CVE), and track its origins in the repository history to
+identify the versions that are likely not affected by a CVE.
 
 The project consists of two parts: 
 
@@ -123,6 +120,12 @@ db.entries.findOne();
     line_contents : ""      -> the contents of the line of code 
 }
 ```
+
+## References
+
+S. Dashevskyi, A. D. Brucker and F. Massacci, "A Screening Test for Disclosed Vulnerabilities in FOSS Components," in
+IEEE Transactions on Software Engineering.  doi: 10.1109/TSE.2018.2816033 URL:
+http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8316943&isnumber=4359463
 
 ## License
 
