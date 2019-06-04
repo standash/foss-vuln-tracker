@@ -85,12 +85,12 @@ The database has following collections and relationships between them:
 ```
 db.projects.findOne();
 { 
-	_id : "",  					-> the id of a project (bson id)
-	name : "",					-> the name of a project (e.g., "Tomcat")
-	repo_type : "",				-> the type of its source repository (e.g., "git")
-	repo_path : "",				-> the path of the repository (e.g., "/home/user/tomcat")
-	vulns : [					-> the list of CVEs for which an analysis was performed 
-		vuln_id : "",					(e.g,. "CVE-2014-0230", ...)
+	_id : "",  			-> the id of a project (bson id)
+	name : "",			-> the name of a project (e.g., "Tomcat")
+	repo_type : "",		-> the type of its source repository (e.g., "git")
+	repo_path : "",		-> the path of the repository (e.g., "/home/user/tomcat")
+	vulns : [			-> the list of CVEs for which an analysis was performed 
+		vuln_id : "",			(e.g,. "CVE-2014-0230", ...)
 		...
 	]
 }
@@ -101,10 +101,10 @@ db.projects.findOne();
 ```
 db.vulns.findOne();
 {	
-	_id : "",					-> the id of a CVE (bson id)
-	cve : "",					-> the name of a CVE
-	owner_id : "",				-> the bson id of a corresponding project
-	fix_commit : "",			-> the id of a commit that fixed the CVE
+	_id : "",			-> the id of a CVE (bson id)
+	cve : "",			-> the name of a CVE
+	owner_id : "",		-> the bson id of a corresponding project
+	fix_commit : "",	-> the id of a commit that fixed the CVE
 }
 ```
 
@@ -113,14 +113,14 @@ db.vulns.findOne();
 ```
 db.entries.findOne();
 {
-	_id : "",					-> the id of an evicence entry (bson id)
-	owner_id : "",				-> the id of a corresponding CVE
-	revision : "",				-> the current commit/revision to which the entry belongs
-	revision_distance : "",		-> this number indincates how far the current revision is from fix
-	file_path : "",				-> the path of a file to which the entry belongs
-	container : "",				-> the method/constructor to which the entry belongs
-	line_number : "",			-> the number of the line of code 
-	line_contents : ""			-> the contents of the line of code 
+	_id : "",				-> the id of an evicence entry (bson id)
+	owner_id : "",			-> the id of a corresponding CVE
+	revision : "",			-> the current commit/revision to which the entry belongs
+	revision_distance : "",	-> this number indincates how far the current revision is from fix
+	file_path : "",			-> the path of a file to which the entry belongs
+	container : "",			-> the method/constructor to which the entry belongs
+	line_number : "",		-> the number of the line of code 
+	line_contents : ""		-> the contents of the line of code 
 }
 ```
 
