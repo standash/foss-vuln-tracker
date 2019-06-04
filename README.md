@@ -47,21 +47,21 @@ each project.
 #### Basic usage
 
 The project can be compiled into an executable jar library:
-	1. Execute the "mvn package" command
-	2. Navigate to the "./molerat/target" folder
-	3. Run it with "java -jar molerat.jar" (this command will display the help message).
+1. Execute the "mvn package" command
+2. Navigate to the "./molerat/target" folder
+3. Run it with "java -jar molerat.jar" (this command will display the help message).
 
 Currently, it is possible to run the analysis by either specifying all
 parameters (such as repository path, tracker type, etc.) manually, or by
 providing a .csv file, where each line corresponds to one vulnerability to be
 analyzed, and contains the following fields separated with commas:
 
-	1. Project name  (e.g., "Tomcat")
-	2. CVE identifier (e.g., "CVE-2014-0230")
-	3. Repository type (either "git" for Git, or "svn" for Apache Subversion)
-	4. Path to the working copy of the repository (e.g., "/home/user/tomcat")
-	5. A revision/commit id of the vulnerability fix (e.g., "e28dd578fad90a6d5726ec34f3245c9f99d909a5A")
-	6. The name of a method for extracting the vulnerability evidence (e.g., "SliceDecayVulnerabilityEvidenceTracker")
+1. Project name  (e.g., "Tomcat")
+2. CVE identifier (e.g., "CVE-2014-0230")
+3. Repository type (either "git" for Git, or "svn" for Apache Subversion)
+4. Path to the working copy of the repository (e.g., "/home/user/tomcat")
+5. A revision/commit id of the vulnerability fix (e.g., "e28dd578fad90a6d5726ec34f3245c9f99d909a5A")
+6. The name of a method for extracting the vulnerability evidence (e.g., "SliceDecayVulnerabilityEvidenceTracker")
 
 NOTE: the list of available trackers can be shown by running the "java -jar
 molerat.jar --list-trackers" command
