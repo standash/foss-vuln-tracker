@@ -1,8 +1,8 @@
 ## About
 
-This is the source code behind the paper [``A Screening Test for Disclosed
+This is the source code behind the paper ["A Screening Test for Disclosed
 Vulnerabilities in FOSS
-Components''](https://ieeexplore.ieee.org/abstract/document/8316943).
+Components"](https://ieeexplore.ieee.org/abstract/document/8316943).
 
 The tool allows to identify and extract the potentially vulnerable coding (using
 a commit that fixed a CVE), and track its origins in the repository history to
